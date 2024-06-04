@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Article, TextBlock, HeadingBlock, ImageBlock
+from .models import *
 
 
 class TextBlockInline(admin.StackedInline):
@@ -19,7 +19,15 @@ class ImageBlockInline(admin.StackedInline):
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'is_published', 'created_at', 'published_at')
-    list_filter = ('is_published', 'created_at', 'published_at')
+    list_display = ('title', 'author', 'is_published', 'created_at')
+    list_filter = ('is_published', 'created_at')
     search_fields = ('title', 'author__username')
     inlines = [TextBlockInline, HeadingBlockInline, ImageBlockInline]
+
+
+@admin.register(Author)
+class AuthorAdmin(admin.ModelAdmin):
+    list_display = ('first_name', 'last_name', 'profile_picture_url')
+    list_editable = ['profile_picture_url']
+
+
