@@ -7,6 +7,11 @@ name = "pypi"
 django = "*"
 djangorestframework = "*"
 python-dotenv = "*"
+djoser = "*"
+mysqlclient = "*"
+django-debug-toolbar = "*"
+pillow = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 
